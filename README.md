@@ -27,3 +27,7 @@ npm run dev
 ```sh
 npm run build
 ```
+
+#License
+Chart.js is available under the MIT license.
+https://github.com/chartjs/Chart.js/blob/master/LICENSE.md
