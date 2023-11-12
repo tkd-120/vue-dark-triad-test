@@ -433,6 +433,7 @@ const submit = () => {
                       :name="`question${index * group.questions.length + i}`"
                       :value="option.value"
                       v-model="answers[index * group.questions.length + i]"
+                      required
                     />
                     <span class="label-button"></span>
                   </label>
