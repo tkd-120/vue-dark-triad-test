@@ -1,14 +1,14 @@
 <script setup>
-import { ref, computed, onMounted } from "vue";
-import "./css/style.css";
+import { ref, computed, onMounted } from "vue"
+import "./css/style.css"
 import {
   Chart,
   BarElement,
   BarController,
   CategoryScale,
   LinearScale,
-} from "chart.js";
-Chart.register(BarElement, BarController, CategoryScale, LinearScale);
+} from "chart.js"
+Chart.register(BarElement, BarController, CategoryScale, LinearScale)
 
 const groups = [
   {
@@ -331,21 +331,21 @@ const groups = [
       },
     ],
   },
-];
+]
 
-let chartData = groups.darkTetrad;
+let chartData = groups.darkTetrad
 
 // 回答を格納する配列
 const answers = ref(
   new Array(groups.flatMap((group) => group.questions).map(() => null))
-);
+)
 //回答の配列をコピー
-const copiedAnswers = ref([]);
+const copiedAnswers = ref([])
 // chart.js
-const canvasRef = ref(null);
+const canvasRef = ref(null)
 const drawChart = () => {
-  if (canvasRef.value === null) return;
-  const canvas = canvasRef.value.getContext("2d");
+  if (canvasRef.value === null) return
+  const canvas = canvasRef.value.getContext("2d")
   window.myChart = new Chart(canvas, {
     type: "bar",
     data: {
@@ -371,42 +371,42 @@ const drawChart = () => {
         },
       },
     },
-  });
-};
+  })
+}
 // マウントされたらチャートを描画
 onMounted(() => {
-  drawChart();
-});
+  drawChart()
+})
 
 // 診断結果を計算する関数
 const calculateScores = () => {
   // chartがすでにあった場合は描き換える
   if (myChart) {
-    myChart.destroy();
+    myChart.destroy()
   }
 
-  const scores = [];
+  const scores = []
   for (let i = 0; i < groups.length; i++) {
-    let sum = 0;
+    let sum = 0
     for (let j = 0; j < groups[i].questions.length; j++) {
-      sum += copiedAnswers.value[i * groups[i].questions.length + j];
+      sum += copiedAnswers.value[i * groups[i].questions.length + j]
     }
-    scores[i] = sum;
-    chartData = scores;
+    scores[i] = sum
+    chartData = scores
   }
-  drawChart();
-  return scores;
-};
+  drawChart()
+  return scores
+}
 
 // drawChart();
 // calculateScoresが変更されたら更新
-const scores = computed(() => calculateScores());
+const scores = computed(() => calculateScores())
 // 送信された時の処理
-const submitted = ref(false);
+const submitted = ref(false)
 const submit = () => {
-  submitted.value = true;
-  copiedAnswers.value = [...answers.value];
-};
+  submitted.value = true
+  copiedAnswers.value = [...answers.value]
+}
 </script>
 <template>
   <div class="container wrapper">
@@ -444,7 +444,12 @@ const submit = () => {
           </div>
         </div>
       </div>
-      <input class="submit-button" type="submit" value="結果を見る" />
+      <input
+        v-if="!submitted"
+        class="submit-button"
+        type="submit"
+        value="結果を見る"
+      />
     </form>
     <div v-if="!submitted" class="before-submit-text">
       <p class="fz24">ここに診断結果が表示されます。</p>
