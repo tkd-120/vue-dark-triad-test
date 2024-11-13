@@ -1,295 +1,295 @@
 /* ネストはクラス後 */
 
 :root {
-  /* font size 16px */
-  --fz14: 0.875rem;
-  --fz16: 1rem;
-  --fz20: 1.25rem;
-  --fz24: 1.5rem;
-  --fz28: 1.75rem;
-  --fz32: 2rem;
-  --fz38: 2.5rem;
-  /* color */
-  --ccc: #ccc;
-  --bgc: #fcfcfc;
-  --murasaki: #a440c9;
-  --hoverMurasaki: #bd09ff;
+	/* font size 16px */
+	--fz14: 0.875rem;
+	--fz16: 1rem;
+	--fz20: 1.25rem;
+	--fz24: 1.5rem;
+	--fz28: 1.75rem;
+	--fz32: 2rem;
+	--fz38: 2.5rem;
+	/* color */
+	--ccc: #ccc;
+	--bgc: #fcfcfc;
+	--murasaki: #a440c9;
+	--hoverMurasaki: #bd09ff;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  user-select: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;
 }
 
 html {
-  font-size: 100%;
+	font-size: 100%;
 }
 
 .fz16 {
-  font-size: var(--fz16);
+	font-size: var(--fz16);
 }
 
 .fz24 {
-  font-size: var(--fz24);
+	font-size: var(--fz24);
 }
 
 .fz20 {
-  font-size: var(--fz20);
+	font-size: var(--fz20);
 }
 
 body {
-  background-color: #fcfcfc;
-  text-align: center;
-  font-family: "Noto Sans JP", sans-serif;
+	background-color: #fcfcfc;
+	text-align: center;
+	font-family: "Noto Sans JP", sans-serif;
 }
 
 label,
 input {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .wrapper {
-  margin: 0 50px;
+	margin: 0 20%;
 }
 
 /* question */
 .question {
-  padding-bottom: 20px;
-  border-top: 1px solid #ddd;
+	padding-bottom: 20px;
+	border-top: 1px solid #ddd;
 }
 
 /* radio */
 .option-wrapper {
-  display: flex;
-  justify-content: space-around;
-  max-width: 660px;
-  margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	max-width: 660px;
+	margin: 0 auto;
 }
 
 .radio-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 128px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 128px;
 }
 
 input[type="radio"] {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 
-  &:focus + .label-button {
-    border: 1px solid var(--hoverMurasaki);
-    background: var(--hoverMurasaki);
-  }
-  &:checked + .label-button {
-    background-color: var(--bgc);
-    border: 7px solid var(--murasaki);
-  }
+	&:focus + .label-button {
+		border: 1px solid var(--hoverMurasaki);
+		background: var(--hoverMurasaki);
+	}
+	&:checked + .label-button {
+		background-color: var(--bgc);
+		border: 7px solid var(--murasaki);
+	}
 }
 
 input[type="radio"] + .label-button {
-  position: relative;
-  vertical-align: middle;
-  display: inline-block;
-  box-sizing: border-box;
-  width: var(--fz38);
-  height: var(--fz38);
-  border-radius: 50%;
-  border: 5px solid var(--ccc);
-  background-color: var(--bgc);
-  box-shadow: none;
-  transition: all 0.05s ease-in-out;
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	box-sizing: border-box;
+	width: var(--fz38);
+	height: var(--fz38);
+	border-radius: 50%;
+	border: 5px solid var(--ccc);
+	background-color: var(--bgc);
+	box-shadow: none;
+	transition: all 0.05s ease-in-out;
 }
 
 .label {
-  position: relative;
-  border-radius: 50%;
-  width: var(--fz38);
-  height: var(--fz38);
-  &:hover .label-button {
-    border: 5px solid var(--hoverMurasaki);
-    background-color: var(--hoverMurasaki);
-  }
+	position: relative;
+	border-radius: 50%;
+	width: var(--fz38);
+	height: var(--fz38);
+	&:hover .label-button {
+		border: 5px solid var(--hoverMurasaki);
+		background-color: var(--hoverMurasaki);
+	}
 }
 
 /* 真ん中（3番目）のチェックボックスを小さくする */
 .option-loop:nth-of-type(3) .label-wrapper .label {
-  position: relative;
-  border-radius: 50%;
-  width: var(--fz28);
-  height: var(--fz28);
+	position: relative;
+	border-radius: 50%;
+	width: var(--fz28);
+	height: var(--fz28);
 
-  /*  */
-  /* 3番目 */
-  /*  */
-  & input[type="radio"] {
-    &:hover + .label-button {
-      border: 1px solid var(--hoverMurasaki);
-      background: var(--hoverMurasaki);
-    }
-    &:checked + .label-button {
-      background-color: var(--bgc);
-      border: 6px solid var(--murasaki);
-    }
-    & + .label-button {
-      width: var(--fz28);
-      height: var(--fz28);
-      border: 5px solid var(--ccc);
-      background-color: var(--bgc);
-    }
-  }
+	/*  */
+	/* 3番目 */
+	/*  */
+	& input[type="radio"] {
+		&:hover + .label-button {
+			border: 1px solid var(--hoverMurasaki);
+			background: var(--hoverMurasaki);
+		}
+		&:checked + .label-button {
+			background-color: var(--bgc);
+			border: 6px solid var(--murasaki);
+		}
+		& + .label-button {
+			width: var(--fz28);
+			height: var(--fz28);
+			border: 5px solid var(--ccc);
+			background-color: var(--bgc);
+		}
+	}
 }
 
 /* 2番目と4番目のチェックボックスを小さくする */
 .option-loop:nth-of-type(2) .label-wrapper .label,
 .option-loop:nth-of-type(4) .label-wrapper .label {
-  position: relative;
-  border-radius: 50%;
-  width: var(--fz32);
-  height: var(--fz32);
-  .label:hover .label-button {
-    border: 5px solid var(--hoverMurasaki);
-    background-color: var(--hoverMurasaki);
-  }
+	position: relative;
+	border-radius: 50%;
+	width: var(--fz32);
+	height: var(--fz32);
+	.label:hover .label-button {
+		border: 5px solid var(--hoverMurasaki);
+		background-color: var(--hoverMurasaki);
+	}
 
-  /*  */
-  /* 2番目と4番目 */
-  /*  */
-  & input[type="radio"] {
-    &:hover + .label-button {
-      border: 1px solid var(--hoverMurasaki);
-      background: var(--hoverMurasaki);
-    }
-    &:checked + .label-button {
-      background-color: var(--bgc);
-      border: 6px solid var(--murasaki);
-    }
-    & + .label-button {
-      width: var(--fz32);
-      height: var(--fz32);
-      border: 5px solid var(--ccc);
-      background-color: var(--bgc);
-    }
-  }
+	/*  */
+	/* 2番目と4番目 */
+	/*  */
+	& input[type="radio"] {
+		&:hover + .label-button {
+			border: 1px solid var(--hoverMurasaki);
+			background: var(--hoverMurasaki);
+		}
+		&:checked + .label-button {
+			background-color: var(--bgc);
+			border: 6px solid var(--murasaki);
+		}
+		& + .label-button {
+			width: var(--fz32);
+			height: var(--fz32);
+			border: 5px solid var(--ccc);
+			background-color: var(--bgc);
+		}
+	}
 }
 
 /* 小さいラジオボタン2，3，4番目、を中央揃え */
 .label-wrapper {
-  width: var(--fz38);
-  height: var(--fz38);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: var(--fz38);
+	height: var(--fz38);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* margin */
 .main-title {
-  margin-top: 20px;
-  margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .question-title {
-  padding-top: 20px;
-  margin-bottom: 20px;
-  /* border-top: 1px solid #aaa; */
+	padding-top: 20px;
+	margin-bottom: 20px;
+	/* border-top: 1px solid #aaa; */
 }
 
 .question-text {
-  margin-top: 10px;
-  margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .footer {
-  margin-top: 20px;
-  margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .submit-button {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .submit-button {
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 7px 25px;
-  border-radius: 7px;
-  /* border: 4px solid var(--orangeC); */
-  border: none;
-  background-color: var(--murasaki);
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--bgc);
-  text-align: center;
-  align-items: center;
-  appearance: none;
-  transition: 0.1s ease-in-out;
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 7px 25px;
+	border-radius: 7px;
+	/* border: 4px solid var(--orangeC); */
+	border: none;
+	background-color: var(--murasaki);
+	font-size: 16px;
+	font-weight: bold;
+	color: var(--bgc);
+	text-align: center;
+	align-items: center;
+	appearance: none;
+	transition: 0.1s ease-in-out;
 }
 
 .chart {
-  max-width: 700px;
-  margin: 0 auto;
+	max-width: 700px;
+	margin: 0 auto;
 }
 
 /* for PC */
 @media (hover: hover) {
-  .submit-button:hover {
-    background-color: var(--hoverMurasaki);
-  }
-  .submit-button:active {
-    background-color: var(--murasaki);
-  }
+	.submit-button:hover {
+		background-color: var(--hoverMurasaki);
+	}
+	.submit-button:active {
+		background-color: var(--murasaki);
+	}
 }
 /* for phone */
 @media (hover: none) {
-  .submit-button:active {
-    background-color: var(--murasaki);
-  }
+	.submit-button:active {
+		background-color: var(--murasaki);
+	}
 }
 
 p {
-  margin-bottom: 10px;
-  margin-top: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 h2 {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 h3 {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
 @media (max-width: 660px) {
-  .wrapper {
-    margin: 0 10px;
-  }
+	.wrapper {
+		margin: 0 10px;
+	}
 
-  .option-loop:nth-of-type(1) .radio-wrapper,
-  .option-loop:nth-of-type(5) .radio-wrapper {
-    width: 80px;
-  }
-  .option-loop:nth-of-type(2) .radio-wrapper,
-  .option-loop:nth-of-type(3) .radio-wrapper,
-  .option-loop:nth-of-type(4) .radio-wrapper {
-    width: auto;
-  }
-  .option-loop:nth-of-type(2) .label-text,
-  .option-loop:nth-of-type(3) .label-text,
-  .option-loop:nth-of-type(4) .label-text {
-    display: none;
-  }
+	.option-loop:nth-of-type(1) .radio-wrapper,
+	.option-loop:nth-of-type(5) .radio-wrapper {
+		width: 80px;
+	}
+	.option-loop:nth-of-type(2) .radio-wrapper,
+	.option-loop:nth-of-type(3) .radio-wrapper,
+	.option-loop:nth-of-type(4) .radio-wrapper {
+		width: auto;
+	}
+	.option-loop:nth-of-type(2) .label-text,
+	.option-loop:nth-of-type(3) .label-text,
+	.option-loop:nth-of-type(4) .label-text {
+		display: none;
+	}
 }
 
 @media (max-width: 440px) {
-  .radio-wrapper {
-    width: auto;
-  }
-  .option-wrapper {
-    justify-content: space-between;
-  }
+	.radio-wrapper {
+		width: auto;
+	}
+	.option-wrapper {
+		justify-content: space-between;
+	}
 }
